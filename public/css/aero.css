@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+}
+    
+button {
+    all: unset;
+}
+
+.aero-bg {
+    background: radial-gradient(circle at top left, #dff6ff, #bfe9ff 40%, #a6dcff 70%);
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+.aero-card {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.15),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    backdrop-filter: blur(6px);
+    padding: 20px;
+}
+.aero-btn {
+    background: linear-gradient(to bottom, #7fd4ff, #2bb3ff);
+    border: 1px solid #1c9be6;
+    border-radius: 8px;
+    color: white;
+    padding: 8px 14px;
+    font-weight: bold;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.7),
+        0 3px 6px rgba(0,0,0,0.2);
+    transition: 0.2s;
+}
+
+.aero-btn:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.9),
+        0 6px 12px rgba(0,0,0,0.25);
+}
+.aero-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.aero-table th {
+    background: linear-gradient(to bottom, #bfe9ff, #7fd4ff);
+    color: #003b5c;
+    padding: 10px;
+    text-align: left;
+}
+
+.aero-table td {
+    background: rgba(255,255,255,0.7);
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.6);
+}
+.aero-nav {
+    background: linear-gradient(to bottom, #dff6ff, #7fd4ff);
+    padding: 14px 24px;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+.aero-btn-green {
+    background: linear-gradient(to bottom, #b9ffcf, #39d98a);
+    border: 1px solid #1fb86a;
+    border-radius: 8px;
+    color: #064d2c;
+    font-weight: bold;
+    padding: 8px 14px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.8),
+        0 3px 8px rgba(0,0,0,0.25);
+    transition: 0.2s;
+}
+
+.aero-btn-green:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.9),
+        0 6px 12px rgba(0,0,0,0.3);
+}
+.aero-btn-red {
+    background: linear-gradient(to bottom, #ffd6d6, #ff4d4d);
+    border: 1px solid #cc2b2b;
+    border-radius: 8px;
+    color: #5c0000;
+    font-weight: bold;
+    padding: 8px 14px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.8),
+        0 3px 8px rgba(0,0,0,0.25);
+    transition: 0.2s;
+}
+
+.aero-btn-red:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.9),
+        0 6px 12px rgba(0,0,0,0.3);
+}
+input, select {
+    border-radius: 6px;
+    border: 1px solid #7fd4ff;
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.8);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+}
+.aero-input {
+    background: linear-gradient(to bottom, #ffffff, #e6f6ff);
+    border: 1px solid #7fd4ff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    outline: none;
+    box-shadow:
+        inset 0 1px 3px rgba(0,0,0,0.1),
+        0 1px 0 rgba(255,255,255,0.8);
+    transition: 0.2s;
+}
+
+.aero-input:focus {
+    border: 1px solid #2bb3ff;
+    box-shadow:
+        0 0 8px rgba(43,179,255,0.6),
+        inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.aero-window {
+    background: rgba(255,255,255,0.75);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.9);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+    padding: 24px;
+}
+.aero-header {
+    padding: 10px 10px;
+    font-weight: bold;
+    color: #003b5c;
+}
+.aero-table tr:hover td {
+    background: rgba(255,255,255,0.9);
+    transition: 0.2s;
+}
+.aero-input {
+    background: linear-gradient(to bottom, #ffffff, #e6f7ff);
+    border: 1px solid #9fd8ff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow:
+        inset 0 2px 4px rgba(0,0,0,0.1),
+        0 1px 0 rgba(255,255,255,0.8);
+}
