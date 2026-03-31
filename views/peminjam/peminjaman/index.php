@@ -1,3 +1,15 @@
+<?php if(isset($_GET['error'])): ?>
+<script>
+alert("<?= $_GET['error'] ?>");
+</script>
+<?php endif; ?>
+
+<?php if(isset($_GET['success'])): ?>
+<script>
+alert("<?= $_GET['success'] ?>");
+</script>
+<?php endif; ?>
+
 <h2 class="aero-header">Daftar Alat</h2>
 <br><br>
 <table class="aero-table w-full">

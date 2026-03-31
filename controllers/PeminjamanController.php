@@ -21,28 +21,32 @@ class PeminjamanController extends Controller {
         $tanggal_kembali = $_POST['tanggal_kembali'] ?? null;
 
         if (!$alat_id || !$tanggal_kembali) {
-            die("Data peminjaman tidak lengkap!");
+            header("Location: index.php?url=peminjaman&error=Data peminjaman tidak lengkap");
+            exit;
         }
 
         $tanggal_pinjam = date('Y-m-d');
 
         if ($tanggal_kembali < $tanggal_pinjam) {
-            die("Tanggal kembali tidak boleh sebelum tanggal pinjam!");
+            header("Location: index.php?url=peminjaman&error=Tanggal kembali tidak boleh sebelum tanggal pinjam");
+            exit;
         }
 
         $hasil = Peminjaman::create($user_id, $alat_id, $tanggal_kembali);
 
         if ($hasil == "MASIH_PINJAM") {
-            die("Anda masih memiliki pinjaman aktif.");
+            header("Location: index.php?url=peminjaman&error=Anda masih memiliki pinjaman aktif");
+            exit;
         }
 
         if ($hasil == "STOK_HABIS") {
-            die("Stok alat habis.");
+            header("Location: index.php?url=peminjaman&error=Stok alat habis");
+            exit;
         }
 
-        header("Location: index.php?url=peminjaman_riwayat");
+        header("Location: index.php?url=riwayat&success=Peminjaman berhasil diajukan");
         exit;
-    }
+}
 
 
 
@@ -72,7 +76,7 @@ class PeminjamanController extends Controller {
         $id = $_GET['id'];
         Peminjaman::setujui($id);
 
-        header("Location: index.php?url=resi&id=".$id);
+        header("Location: index.php?url=peminjaman_petugas&resi_id=".$id);
         exit;
     }
 
