@@ -147,4 +147,67 @@ class Peminjaman {
         return mysqli_fetch_all($q, MYSQLI_ASSOC);
     }
 
+    // ============ ADMIN METHODS ============
+
+    public static function all() {
+        global $conn;
+        $q = mysqli_query($conn, "
+            SELECT p.*, u.name, a.nama_alat
+            FROM peminjaman p
+            JOIN users u ON p.user_id = u.id
+            JOIN alat a ON p.alat_id = a.id
+            ORDER BY p.id DESC
+        ");
+        return mysqli_fetch_all($q, MYSQLI_ASSOC);
+    }
+
+    public static function findById($id) {
+        global $conn;
+        $id = (int)$id;
+        $q = mysqli_query($conn, "
+            SELECT p.*, u.name, a.nama_alat
+            FROM peminjaman p
+            JOIN users u ON p.user_id = u.id
+            JOIN alat a ON p.alat_id = a.id
+            WHERE p.id = $id
+        ");
+        return mysqli_fetch_assoc($q);
+    }
+
+    public static function adminCreate($user_id, $alat_id, $tanggal_pinjam, $tanggal_kembali, $status) {
+        global $conn;
+        $user_id  = (int)$user_id;
+        $alat_id  = (int)$alat_id;
+        $tanggal_pinjam  = mysqli_real_escape_string($conn, $tanggal_pinjam);
+        $tanggal_kembali = mysqli_real_escape_string($conn, $tanggal_kembali);
+        $status   = mysqli_real_escape_string($conn, $status);
+        mysqli_query($conn, "
+            INSERT INTO peminjaman (user_id, alat_id, tanggal_pinjam, tanggal_kembali, status)
+            VALUES ($user_id, $alat_id, '$tanggal_pinjam', '$tanggal_kembali', '$status')
+        ");
+        return mysqli_insert_id($conn);
+    }
+
+    public static function adminUpdate($id, $user_id, $alat_id, $tanggal_pinjam, $tanggal_kembali, $status) {
+        global $conn;
+        $id       = (int)$id;
+        $user_id  = (int)$user_id;
+        $alat_id  = (int)$alat_id;
+        $tanggal_pinjam  = mysqli_real_escape_string($conn, $tanggal_pinjam);
+        $tanggal_kembali = mysqli_real_escape_string($conn, $tanggal_kembali);
+        $status   = mysqli_real_escape_string($conn, $status);
+        mysqli_query($conn, "
+            UPDATE peminjaman
+            SET user_id=$user_id, alat_id=$alat_id,
+                tanggal_pinjam='$tanggal_pinjam', tanggal_kembali='$tanggal_kembali', status='$status'
+            WHERE id=$id
+        ");
+    }
+
+    public static function adminDelete($id) {
+        global $conn;
+        $id = (int)$id;
+        mysqli_query($conn, "DELETE FROM peminjaman WHERE id=$id");
+    }
+
 }

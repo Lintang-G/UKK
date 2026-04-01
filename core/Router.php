@@ -129,6 +129,111 @@ switch ($url) {
         (new PeminjamanController)->riwayat();
         break;
 
+    // ============ ADMIN PEMINJAMAN ============
+    case 'admin_peminjaman':
+        require_once "../controllers/AdminPeminjamanController.php";
+        require_once "../models/Peminjaman.php";
+        (new AdminPeminjamanController)->index();
+        break;
+
+    case 'admin_peminjaman_tambah':
+        require_once "../controllers/AdminPeminjamanController.php";
+        require_once "../models/User.php";
+        require_once "../models/Alat.php";
+        (new AdminPeminjamanController)->tambah();
+        break;
+
+    case 'admin_peminjaman_simpan':
+        require_once "../controllers/AdminPeminjamanController.php";
+        require_once "../models/Peminjaman.php";
+        require_once "../models/LogAktivitas.php";
+        (new AdminPeminjamanController)->simpan();
+        break;
+
+    case 'admin_peminjaman_edit':
+        require_once "../controllers/AdminPeminjamanController.php";
+        require_once "../models/Peminjaman.php";
+        require_once "../models/User.php";
+        require_once "../models/Alat.php";
+        (new AdminPeminjamanController)->edit();
+        break;
+
+    case 'admin_peminjaman_update':
+        require_once "../controllers/AdminPeminjamanController.php";
+        require_once "../models/Peminjaman.php";
+        require_once "../models/LogAktivitas.php";
+        (new AdminPeminjamanController)->update();
+        break;
+
+    case 'admin_peminjaman_hapus':
+        require_once "../controllers/AdminPeminjamanController.php";
+        require_once "../models/Peminjaman.php";
+        require_once "../models/LogAktivitas.php";
+        (new AdminPeminjamanController)->hapus();
+        break;
+
+    // ============ ADMIN PENGEMBALIAN ============
+    case 'admin_pengembalian':
+        require_once "../controllers/AdminPengembalianController.php";
+        require_once "../models/Pengembalian.php";
+        require_once "../models/Peminjaman.php";
+        (new AdminPengembalianController)->index();
+        break;
+
+    case 'admin_pengembalian_tambah':
+        require_once "../controllers/AdminPengembalianController.php";
+        require_once "../models/Peminjaman.php";
+        (new AdminPengembalianController)->tambah();
+        break;
+
+    case 'admin_pengembalian_simpan':
+        require_once "../controllers/AdminPengembalianController.php";
+        require_once "../models/Pengembalian.php";
+        require_once "../models/Peminjaman.php";
+        require_once "../models/LogAktivitas.php";
+        (new AdminPengembalianController)->simpan();
+        break;
+
+    case 'admin_pengembalian_edit':
+        require_once "../controllers/AdminPengembalianController.php";
+        require_once "../models/Pengembalian.php";
+        require_once "../models/Peminjaman.php";
+        (new AdminPengembalianController)->edit();
+        break;
+
+    case 'admin_pengembalian_update':
+        require_once "../controllers/AdminPengembalianController.php";
+        require_once "../models/Pengembalian.php";
+        require_once "../models/LogAktivitas.php";
+        (new AdminPengembalianController)->update();
+        break;
+
+    case 'admin_pengembalian_hapus':
+        require_once "../controllers/AdminPengembalianController.php";
+        require_once "../models/Pengembalian.php";
+        require_once "../models/LogAktivitas.php";
+        (new AdminPengembalianController)->hapus();
+        break;
+
+    // ============ LOG AKTIVITAS ============
+    case 'log_aktivitas':
+        require_once "../controllers/LogAktivitasController.php";
+        require_once "../models/LogAktivitas.php";
+        (new LogAktivitasController)->index();
+        break;
+
+    case 'log_aktivitas_hapus':
+        require_once "../controllers/LogAktivitasController.php";
+        require_once "../models/LogAktivitas.php";
+        (new LogAktivitasController)->hapus();
+        break;
+
+    case 'log_aktivitas_hapus_semua':
+        require_once "../controllers/LogAktivitasController.php";
+        require_once "../models/LogAktivitas.php";
+        (new LogAktivitasController)->hapusSemua();
+        break;
+
     case 'dashboard_admin':
         require_once "../core/Controller.php";
         (new Controller)->view('admin/dashboard');

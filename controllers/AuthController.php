@@ -14,6 +14,10 @@ class AuthController extends Controller {
         if ($user && $password == $user['password']) {
             $_SESSION['user'] = $user;
 
+            // Catat log aktivitas login
+            require_once "../models/LogAktivitas.php";
+            LogAktivitas::catat($user['id'], "Login sebagai {$user['role']}");
+
             // redirect sesuai role
             if ($user['role'] == 'admin') {
                 header("Location: index.php?url=dashboard_admin");
@@ -30,6 +34,11 @@ class AuthController extends Controller {
     }
 
     public function logout() {
+        // Catat log sebelum session dihancurkan
+        if (isset($_SESSION['user'])) {
+            require_once "../models/LogAktivitas.php";
+            LogAktivitas::catat($_SESSION['user']['id'], "Logout");
+        }
         session_destroy();
         header("Location: index.php?url=login");
         exit;

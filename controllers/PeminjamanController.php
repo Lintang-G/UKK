@@ -76,7 +76,7 @@ class PeminjamanController extends Controller {
         $id = $_GET['id'];
         Peminjaman::setujui($id);
 
-        header("Location: index.php?url=peminjaman_petugas&resi_id=".$id);
+        header("Location: index.php?url=resi&id=".$id);
         exit;
     }
 

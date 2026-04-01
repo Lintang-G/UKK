@@ -1,11 +1,3 @@
-<?php if(isset($_GET['resi_id'])): ?>
-<script>
-window.open(
-    "index.php?url=resi&id=<?= $_GET['resi_id'] ?>",
-    "_blank"
-);
-</script>
-<?php endif; ?>
 <h2 class="aero-header">Persetujuan Peminjaman</h2>
 <br><br>
 <table class="aero-table w-full">
